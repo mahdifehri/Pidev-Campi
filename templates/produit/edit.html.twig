@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Editer un Produit {% endblock %}
+
+{% block body %}
+
+    <h1>Editer un Produit </h1>
+
+    {{ form_start(form) }}
+
+    {{ include('produit/_form.html.twig') }}
+    <button class="btn btn-primary">
+        Editer
+    </button>
+    {{ form_end(form) }}
+{% endblock %}
