@@ -26,12 +26,28 @@ class Produit
     private $Designation;
 
     /**
+     * @return mixed
+     */
+    public function getDesignation()
+    {
+        return $this->Designation;
+    }
+
+    /**
+     * @param mixed $Designation
+     */
+    public function setDesignation($Designation): void
+    {
+        $this->Designation = $Designation;
+    }
+
+    /**
      * @ORM\Column(type="string", length=255)
      */
     private $Quantite;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="float")
      */
     private $Prix;
 
@@ -61,29 +77,24 @@ class Produit
     private $fournisseur;
 
     /**
-     * @ORM\Column(type="guid")
+     * @ORM\Column(type="guid", nullable=true)
      */
     private $Image;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $Nom;
 
     public function __construct()
     {
         $this->produits = new ArrayCollection();
     }
 
-
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-
-
     public function getId(): ?int
     {
         return $this->id;
     }
-
-
-
 
     public function getQuantite(): ?string
     {
@@ -97,17 +108,23 @@ class Produit
         return $this;
     }
 
-    public function getPrix(): ?Float_
+    /**
+     * @return mixed
+     */
+    public function getPrix()
     {
         return $this->Prix;
     }
 
-    public function setPrix(int $Prix): self
+    /**
+     * @param mixed $Prix
+     */
+    public function setPrix($Prix): void
     {
         $this->Prix = $Prix;
-
-        return $this;
     }
+
+
 
     public function getCategorie(): ?Categorie
     {
@@ -199,7 +216,17 @@ class Produit
         return $this;
     }
 
+    public function getNom(): ?string
+    {
+        return $this->Nom;
+    }
 
+    public function setNom(string $Nom): self
+    {
+        $this->Nom = $Nom;
+
+        return $this;
+    }
 
 
 }
